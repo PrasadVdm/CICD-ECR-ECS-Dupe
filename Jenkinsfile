@@ -65,7 +65,7 @@ pipeline {
       stage("Build Image") {
         steps {
           script {
-            dockerImage = docker.build( ecrAppImage + ":$BUILD_NUMBER", "-f", "./docker-files/Dockerfile")
+            dockerImage = docker.build( ecrAppImage + ":$BUILD_NUMBER", "${WORKSPACE}/docker-files")
           }
 
         }
